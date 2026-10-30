@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="وب‌سایت شخصی کیان؛ طراح سایت و برنامه‌نویس">
+  <title>کیان | طراح سایت و برنامه‌نویس</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+    :root{--bg:#090711;--panel:#131020;--panel2:#1a152b;--purple:#20d879;--pink:#75f0a8;--text:#f7f3ff;--muted:#aaa2bb;--line:rgba(190,150,255,.16)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .glow{position:fixed;width:380px;height:380px;border-radius:50%;filter:blur(120px);opacity:.16;pointer-events:none;z-index:-1;background:#13b866;top:5%;right:-170px}
+    .glow.two{background:#087b45;top:55%;right:auto;left:-190px}
+    .container{width:min(1100px,90%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(9,7,17,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.55rem;font-weight:800;letter-spacing:-1px}.logo span{color:var(--purple)}
+    .nav-links{display:flex;gap:30px;color:var(--muted);font-size:.92rem}
+    .nav-links a:hover{color:white}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:white;padding:7px 12px;border-radius:10px;font-size:1.2rem}
+    .hero{min-height:670px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px;padding:85px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a8f5ca;background:rgba(155,92,255,.1);border:1px solid var(--line);padding:7px 14px;border-radius:30px;font-size:.85rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:#a5ffbf;box-shadow:0 0 12px #a5ffbf}
+    h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.25;margin:22px 0 16px;letter-spacing:-2px}
+    h1 span{background:linear-gradient(90deg,#20d879,#9af5bd);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);max-width:590px;font-size:1.05rem}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:12px;font-weight:600;border:1px solid var(--line);transition:.25s;cursor:pointer;font-family:inherit}
+    .btn.primary{background:linear-gradient(110deg,#079447,#20d879);border:0;box-shadow:0 10px 35px #8b43dd35}
+    .btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+    .btn.ghost{background:#ffffff08}
+    .hero-card{height:390px;display:grid;place-items:center;position:relative}
+    .orbit{width:300px;height:300px;border:1px solid #20d87955;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 80px #8e40ff20}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #20d87935;border-radius:50%;inset:25px}
+    .orbit:after{inset:-25px;border-style:dashed;animation:spin 35s linear infinite}
+    .avatar{width:190px;height:190px;border-radius:42px;display:grid;place-items:center;font-size:5rem;font-weight:800;background:linear-gradient(145deg,#342052,#171124);border:1px solid #58e99a88;box-shadow:0 20px 70px #0009, inset 0 0 40px #a04cff22}
+    .float{position:absolute;padding:10px 15px;border-radius:13px;background:#1b1530;border:1px solid var(--line);box-shadow:0 10px 35px #0006;color:#c8ffe0;font-size:.85rem}
+    .f1{top:45px;right:0}.f2{bottom:55px;left:0}.f3{bottom:5px;right:45px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    section{padding:85px 0}
+    .section-head{text-align:center;margin-bottom:42px}
+    .section-head small{color:#62e99d;font-weight:600}
+    .section-head h2{font-size:2.1rem;margin:5px 0}
+    .section-head p{color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .card{background:linear-gradient(145deg,#171226,#100d1b);border:1px solid var(--line);border-radius:20px;padding:28px}
+    .card h3{font-size:1.2rem;margin-bottom:12px}
+    .card p{color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .stat{background:#ffffff06;border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center}
+    .stat strong{display:block;color:#69e9a0;font-size:1.5rem}.stat span{font-size:.8rem;color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .skill{padding:9px 15px;background:#9b5cff12;border:1px solid #9b5cff35;border-radius:10px;color:#e3ceff;font-size:.9rem}
+    .service-grid,.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{transition:.25s}.service:hover,.project:hover{transform:translateY(-6px);border-color:#20d87988}
+    .service-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#20d87920;color:#8af0b6;font-size:1.4rem;margin-bottom:18px}
+    .service h3{margin-bottom:8px}.service p{font-size:.92rem}
+    .project-art{height:160px;border-radius:14px;margin-bottom:18px;display:grid;place-items:center;font-size:2.8rem;background:radial-gradient(circle at 30% 30%,#176b43,#10251b 65%)}
+    .project:nth-child(2) .project-art{background:radial-gradient(circle at 70% 20%,#17634a,#111f1a 65%)}
+    .project:nth-child(3) .project-art{background:radial-gradient(circle at 50% 20%,#23834e,#14251a 65%)}
+    .project p{font-size:.9rem;margin:7px 0 14px}
+    .tag{font-size:.75rem;color:#a8f5ca;background:#20d87918;padding:5px 9px;border-radius:7px;display:inline-block;margin-left:5px}
+    .contact-wrap{max-width:720px;margin:auto;text-align:center}
+    .contact-wrap .card{margin-top:25px}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+    footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:var(--muted);font-size:.85rem}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding:65px 0}.hero p{margin:auto}.actions{justify-content:center}.hero-card{height:340px;grid-row:1}.orbit{width:245px;height:245px}.avatar{width:155px;height:155px}.about-grid{grid-template-columns:1fr}.service-grid,.project-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.nav-links{display:none;position:absolute;top:76px;right:0;left:0;background:#100d1b;padding:20px 5%;flex-direction:column;gap:15px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}.service-grid,.project-grid{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:10px 5px}.section-head h2{font-size:1.7rem}section{padding:65px 0}.f1{right:-12px}.f2{left:-12px}}
+  </style>
+</head>
+<body>
+  <div class="glow"></div><div class="glow two"></div>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">K<span>.</span></a>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">خانه</a><a href="#about">درباره من</a><a href="#services">خدمات</a><a href="#projects">نمونه‌کارها</a><a href="#contact">ارتباط</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="باز کردن منو">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero" id="home">
+        <div class="hero-content reveal">
+          <span class="eyebrow"><span class="dot"></span> آماده همکاری در پروژه‌های جدید</span>
+          <h1>سلام، من <span>کیان</span> هستم؛<br>طراح سایت و برنامه‌نویس</h1>
+          <p>به دنیای دیجیتال خوش آمدید! من وب‌سایت‌هایی مدرن، سریع و کاربرپسند طراحی می‌کنم تا ایده‌های شما به تجربه‌ای جذاب در فضای آنلاین تبدیل شوند.</p>
+          <div class="actions"><a class="btn primary" href="#projects">مشاهده نمونه‌کارها ↙</a><a class="btn ghost" href="#contact">ارتباط با من</a></div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="orbit"><div class="avatar">K</div></div>
+          <div class="float f1">✦ طراحی خلاقانه</div><div class="float f2">⌘ کدنویسی تمیز</div><div class="float f3">⚡ سرعت و کیفیت</div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head reveal"><small>کمی درباره من</small><h2>ایده‌ها را به واقعیت تبدیل می‌کنم</h2><p>ترکیبی از طراحی زیبا و کدنویسی اصولی</p></div>
+        <div class="about-grid">
+          <div class="card reveal"><h3>من کی هستم؟</h3><p>من کیان هستم، طراح سایت و برنامه‌نویس. به ساخت تجربه‌های دیجیتال جذاب علاقه دارم و تلاش می‌کنم برای هر پروژه، راه‌حلی ساده، زیبا و کاربردی ارائه دهم.</p>
+            <div class="stats"><div class="stat"><strong>۱۰۰٪</strong><span>تعهد به کیفیت</span></div><div class="stat"><strong>خلاق</strong><span>در طراحی</span></div><div class="stat"><strong>همیشه</strong><span>در حال یادگیری</span></div></div>
+          </div>
+          <div class="card reveal"><h3>مهارت‌های من</h3><p>ابزارهایی که با آن‌ها ایده‌ها را به وب‌سایت تبدیل می‌کنم:</p>
+            <div class="skills"><span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript</span><span class="skill">Python</span><span class="skill">Responsive Design</span><span class="skill">UI Design</span><span class="skill">Git</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-head reveal"><small>چه کاری انجام می‌دهم؟</small><h2>خدمات من</h2><p>از ایده اولیه تا اجرای یک وب‌سایت کامل</p></div>
+        <div class="service-grid">
+          <article class="card service reveal"><div class="service-icon">✧</div><h3>طراحی وب‌سایت</h3><p>طراحی صفحات مدرن و زیبا متناسب با هویت و نیاز کسب‌وکار شما.</p></article>
+          <article class="card service reveal"><div class="service-icon">⌘</div><h3>توسعه فرانت‌اند</h3><p>پیاده‌سازی رابط کاربری با HTML، CSS و JavaScript تمیز و استاندارد.</p></article>
+          <article class="card service reveal"><div class="service-icon">▣</div><h3>طراحی واکنش‌گرا</h3><p>نمایش درست و جذاب سایت در موبایل، تبلت و کامپیوتر.</p></article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head reveal"><small>کارهای منتخب</small><h2>نمونه‌کارهای من</h2><p>چند نمونه برای نمایش سبک و توانایی‌های من</p></div>
+        <div class="project-grid">
+          <article class="card project reveal"><div class="project-art">🛍️</div><h3>فروشگاه آنلاین</h3><p>یک طرح فروشگاهی مدرن با تمرکز بر تجربه خرید ساده.</p><span class="tag">طراحی رابط</span><span class="tag">HTML/CSS</span></article>
+          <article class="card project reveal"><div class="project-art">💼</div><h3>وب‌سایت شرکتی</h3><p>صفحه معرفی خدمات و اطلاعات یک کسب‌وکار حرفه‌ای.</p><span class="tag">طراحی سایت</span><span class="tag">واکنش‌گرا</span></article>
+          <article class="card project reveal"><div class="project-art">🚀</div><h3>صفحه معرفی محصول</h3><p>یک لندینگ‌پیج جذاب برای معرفی یک محصول دیجیتال.</p><span class="tag">JavaScript</span><span class="tag">UI</span></article>
+        </div>
+        <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px">* این پروژه‌ها نمونه نمایشی هستند؛ می‌توانی آن‌ها را با نمونه‌کارهای واقعی خودت جایگزین کنی.</p>
+      </section>
+
+      <section id="contact">
+        <div class="contact-wrap reveal">
+          <div class="section-head"><small>بیایید همکاری کنیم</small><h2>پروژه‌ای در ذهن داری؟</h2><p>برای شروع یک همکاری جذاب، با من در ارتباط باش.</p></div>
+          <div class="card"><h3>منتظر پیام تو هستم! 💜</h3><p>راه ارتباطی دلخواهت را اینجا قرار بده تا مشتری‌ها بتوانند مستقیم با تو تماس بگیرند.</p>
+            <div class="contact-links">
+              <a class="btn primary" href="tel:+989171335778">☎ تماس با کیان</a>
+              <a class="btn ghost" href="https://www.aparat.com/KIAN_Z_ALPHA" target="_blank" rel="noopener noreferrer">▶ کانال آپارات من ↗</a>
+              <a class="btn ghost" href="https://ble.ir/join/G1NkAcP5su" target="_blank" rel="noopener noreferrer">✉ کانال بله من ↗</a>
+            </div>
+            <p style="margin-top:16px;color:var(--muted);direction:ltr">+98 917 133 5778</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="container">ساخته‌شده با 💜 توسط کیان · <span id="year"></span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
